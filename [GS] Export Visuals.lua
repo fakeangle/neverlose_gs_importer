@@ -70,6 +70,7 @@ local tbl = {
     },
 
     ['FOV'] = {
+        ['Props Transparency'] = ui.reference('VISUALS', 'Effects', 'Transparent props'),
         ['FOV'] = ui.reference('MISC', 'Miscellaneous', 'Override FOV'),
         ['Zoom FOV'] = ui.reference('MISC', 'Miscellaneous', 'Override zoom FOV'),
         ['Aspect Ratio'] = ui.reference('VISUALS', 'Effects', 'Force aspect ratio'),
@@ -85,7 +86,11 @@ local export = ui.new_button('CONFIG', 'Presets', 'EXPORT VISUALS', function()
         local r, g, b, a = ui.get(v[2])
         local amangas = color(r, g, b, a):to_hex()
         local status = ui.get(v[1])
-        table.insertAll(j, k, amangas, status)
+        if k == 'OOF Arrows' then
+            table.insertAll(j, k, amangas, status, ui.get(v[3]), ui.get(v[4]))
+        else
+            table.insertAll(j, k, amangas, status)
+        end
         table.insert(cfg, j)
     end
 
