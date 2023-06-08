@@ -1,6 +1,6 @@
 local ffi = require "ffi"
-local color = require 'gamesense/color'
-local base64 = require 'gamesense/base64'
+local color = require 'gamesense/color' -- https://gamesense.pub/forums/viewtopic.php?id=41959
+local base64 = require 'gamesense/base64' -- https://gamesense.pub/forums/viewtopic.php?id=21619
 local clipboard = {}
 local native_SetClipboardText = vtable_bind("vgui2.dll", "VGUI_System010", 9, "void(__thiscall*)(void*, const char*, int)")
 function clipboard.set(text)
